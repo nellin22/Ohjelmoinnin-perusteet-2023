@@ -1,1 +1,57 @@
+import time
 
+# Toivotetaan pelaaja tervetulleeksi
+nimi = input("Kuka olet? ")
+
+print (f"Hei {nimi}, tervetuloa pelaamaan IT-hirsipuuta!")
+
+time.sleep(1)
+
+print ("Aloitetaan!")
+time.sleep(0.5)
+
+# Keksitään sana
+sana = ("tietojenkäsittely")
+
+# Määritellään arvaukset ja yritysten määrä
+arvaukset = ''
+yritykset = 10
+
+while yritykset > 0:         
+
+    väärin = 0                
+    for kirjain in sana:      
+        if kirjain in arvaukset:    
+            # tulostetaan kirjain
+            print (kirjain, end=""), 
+           
+        else:
+        # Merkitään kirjainten määrä alaviivoilla
+            print ("_", end=""),     
+            väärin += 1
+
+    if väärin == 0:        
+        print()
+        print()
+        print (f"Onneksi olkoon {nimi} arvasit sanan! Sana oli {sana}")
+        break            
+
+    arvaus = input(" Arvaa kirjain: ") 
+    arvaukset += arvaus                   
+
+    # Jos pelaaja antaa väärän kirjaimen, yritysten määrä laskee yhdellä
+    if arvaus not in sana:  
+        yritykset -= 1        
+ 
+        print()
+        print ("Kirjainta ei löydy sanasta")  
+ 
+    # Ilmoitetaan pelaajalle montako yritystä on jäljellä
+        print (f"Sinulla on {yritykset} määrä yrityksiä jäljellä" )
+        print()
+ 
+    # Jos pelaaja käyttää kaikki yritykset, ilmoitetaan pelaajalle häviöstä
+        if yritykset == 0:           
+            print()
+            print ("Kaikki yritykset on käytetty."  )
+            print ("Hävisit pelin, yritä uudelleen!"  )
