@@ -5,7 +5,7 @@ nimi = input("Kuka olet? ")
 
 print (f"Hei {nimi}, tervetuloa pelaamaan IT-hirsipuuta!")
 
-time.sleep(1)
+time.sleep(0.5)
 
 print ("Aloitetaan!")
 time.sleep(0.5)
@@ -30,7 +30,8 @@ while yritykset > 0:
             print ("_", end=""),     
             väärin += 1
 
-    if väärin == 0:        
+    if väärin == 0:
+        time.sleep(0.5)
         print()
         print()
         print (f"Onneksi olkoon {nimi} arvasit sanan! Sana oli {sana}")
@@ -42,7 +43,7 @@ while yritykset > 0:
     # Jos pelaaja antaa väärän kirjaimen, yritysten määrä laskee yhdellä
     if arvaus not in sana:  
         yritykset -= 1        
- 
+        time.sleep(0.25)
         print()
         print ("Kirjainta ei löydy sanasta")  
  
@@ -51,7 +52,8 @@ while yritykset > 0:
         print()
  
     # Jos pelaaja käyttää kaikki yritykset, ilmoitetaan pelaajalle häviöstä
-        if yritykset == 0:           
+        if yritykset == 0:
+            time.sleep(0.5)
             print()
             print ("Kaikki yritykset on käytetty."  )
             print ("Hävisit pelin, yritä uudelleen!"  )
